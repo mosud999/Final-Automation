@@ -15,6 +15,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
+import org.testng.Reporter;
 import org.testng.asserts.SoftAssert;
 
 import com.nike.utilities.AllPagesExpectedUrl;
@@ -61,27 +62,34 @@ public class HomePage {
 	@FindBy(xpath="//input[@type='text' and @placeholder='Last Name']")
 	WebElement joinInFormLastNameElement;
 	
+	@FindBy(xpath="//input[@name='dateOfBirth']")
+	WebElement joinInDateOfBirthElement;
+	
+	@FindBy(xpath="//select[@name='country' and @data-componentname='country']")
+	WebElement joinInCountrySelection;
+	
+	
 	/*----------Constructor---------*/
 	public HomePage(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}/*----------End of Constructor---------*/
 
+	
 	/*----------HomePage url verification---------*/
 	public void homePage_UrlVerification(){
 		String actualHomepageUrl = driver.getCurrentUrl();
 		Properties expectedUrl=AllPagesExpectedUrl.allPagesExpectedUrl();
 		String homepageExpectedUrl = expectedUrl.getProperty("homepage_expected_url");
-		Assert.assertEquals(actualHomepageUrl, homepageExpectedUrl, "Inocrrect Homepage Url");
-		System.out.println("Homepage Verified");
+		Assert.assertEquals(actualHomepageUrl, homepageExpectedUrl, "Incorrect Homepage Url");
+		Reporter.log("Homepage Verified", true); /* true to print on the console; Without boolean condition Log will just generate report */
 	}/*----------End of HomePage url verification---------*/
 
 	/*----------Start of HomePage Logo Check---------*/
 	public void homePage_LogoCheck() {
 		boolean logoDisplayed = logoElement.isDisplayed();
 		Assert.assertTrue(logoDisplayed);
-		System.out.println("Logo displayed");
-		
+		Reporter.log("Logo displayed", true); /* true to print on the console; Without boolean condition Log will just generate report */
 	}/*----------End of HomePage Logo Check---------*/
 
 	/*----------HomePage Broken Links Check---------*/
@@ -113,7 +121,7 @@ public class HomePage {
 				// httpURLConnection.setConnectTimeout(3000);
 				httpURLConnection.connect();
 				String response = httpURLConnection.getResponseMessage();
-				System.out.println(activeLinks.get(j).getAttribute("href") + " ----> " + response);
+				Reporter.log(activeLinks.get(j).getAttribute("href") + " ----> " + response, true); /* true to print on the console; Without boolean condition Log will just generate report */
 				httpURLConnection.disconnect();
 				} catch (Exception e) 
 				{
@@ -127,7 +135,7 @@ public class HomePage {
 	{
 		SharedMethods.type(searchBarElement, driver, "Men");
 		String actualSearhPageTile=driver.getTitle();
-		System.out.println(actualSearhPageTile);
+		Reporter.log(actualSearhPageTile, true); /* true to print on the console; Without boolean condition Log will just generate report */
 		driver.navigate().back();
 	}/*----------End of searchBoxFunctionalityCheck---------*/
 	
@@ -161,12 +169,14 @@ public class HomePage {
 	
 	/*----------Start of homePage_joinNowFormVerification---------*/
 	public void homePage_joinNowFormVerification
-		(Object email, Object password, Object firstName, Object lastName)
+		(Object email, Object password, Object firstName, Object lastName, Object dateOfBirth, Object countries )
 	{
 		joinInFormEmailElement.sendKeys(email.toString());
 		joinInFormPasswordElement.sendKeys(password.toString());
 		joinInFormFirstNameElement.sendKeys(firstName.toString());
 		joinInFormLastNameElement.sendKeys(lastName.toString());
+		joinInDateOfBirthElement.sendKeys(dateOfBirth.toString());
+		SharedMethods.dropdownHandling(joinInCountrySelection, countries);
 	}/*----------End of homePage_joinNowFormVerification---------*/
 	
 	/*----------Start of homePage_ClickOnJoinNowFormCloseButton---------*/
@@ -175,9 +185,5 @@ public class HomePage {
 		SharedMethods.clickOnElement(joinNowFormCloseButtonElement, driver);	
 	}/*----------End of homePage_ClickOnJoinNowFormCloseButton---------*/
 	
-	public void homePage_ClickOnBecome_a_MemberPage()
-	{
-		
-	}
 
 }

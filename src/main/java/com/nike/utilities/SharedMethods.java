@@ -10,6 +10,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class SharedMethods {
@@ -30,6 +31,12 @@ public class SharedMethods {
 	public static void mouseHover(WebElement element, WebDriver driver) {
 		Actions action = new Actions(driver);
 		action.moveToElement(element).build().perform();
+	}
+	
+	/*----------Select based Dropdown---------*/
+	public static void dropdownHandling(WebElement element, Object countries) {
+		Select select=new Select(element);
+		select.selectByVisibleText(countries.toString());
 	}
 
 

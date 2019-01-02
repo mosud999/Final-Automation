@@ -9,7 +9,7 @@ public class ReadJoinNowFormDatas {
 	@DataProvider(name="joinNowFormData")
 	public Object[][] joinNowFormDataRead() throws IOException
 	{
-		Object [][] signUpData=DataProviderDataLoadFromExcelFile.dataProvderDatasFromExcelFile("C:\\Users\\User\\workspace\\Nike.Automation\\joinNow_form_datas.xlsx", 0);
+		Object [][] signUpData=DataProviderDataLoadFromExcelFile.dataProvderDatasFromExcelFile("C:\\Users\\User\\workspace\\Nike.Automation\\SignUpData.xlsx", 0);
 		return signUpData;
 	}
 

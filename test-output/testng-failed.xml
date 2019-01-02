@@ -6,7 +6,7 @@
       <class name="com.nike.allpages.test.HomepageTest">
         <methods>
           <include name="tearDown"/>
-          <include name="homePageTest3"/>
+          <include name="homePageTest3" invocation-numbers="1 2"/>
           <include name="openBrowser"/>
         </methods>
       </class> <!-- com.nike.allpages.test.HomepageTest -->

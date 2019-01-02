@@ -7,7 +7,9 @@ import com.nike.all_pages.HomePage;
 
 public class PageObjectManager {
 	WebDriver driver;
-	HomePage homePage;
+	
+	private HomePage homePage;
+	
 	/*----------Constructor---------*/
 	public PageObjectManager(WebDriver driver) {
 		this.driver = driver;
