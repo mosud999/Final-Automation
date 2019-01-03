@@ -1,129 +1,61 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="3" passed="3">
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
+    <line>
+      <![CDATA[Actual Country NORTH AMERICA is equal to Expected Country NORTH AMERICA]]>
+    </line>
+    <line>
+      <![CDATA[Actual Country SOUTH AMERICA is equal to Expected Country SOUTH AMERICA]]>
+    </line>
+    <line>
+      <![CDATA[Actual Country EUROPE is equal to Expected Country EUROPE]]>
+    </line>
+    <line>
+      <![CDATA[Actual Country ASIA PACIFIC is equal to Expected Country ASIA PACIFIC]]>
+    </line>
+    <line>
+      <![CDATA[Actual Country MIDDLE EAST is equal to Expected Country MIDDLE EAST]]>
+    </line>
+    <line>
+      <![CDATA[Actual Country AFRICA is equal to Expected Country AFRICA]]>
+    </line>
   </reporter-output>
-  <suite name="Default suite" duration-ms="29587" started-at="2019-01-02T04:05:09Z" finished-at="2019-01-02T04:05:39Z">
+  <suite name="Default suite" duration-ms="20987" started-at="2019-01-03T06:42:56Z" finished-at="2019-01-03T06:43:17Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="29587" started-at="2019-01-02T04:05:09Z" finished-at="2019-01-02T04:05:39Z">
-      <class name="com.nike.allpages.test.HomepageTest">
-        <test-method status="PASS" signature="openBrowser()[pri:0, instance:com.nike.allpages.test.HomepageTest@5c3bd550]" name="openBrowser" is-config="true" duration-ms="21989" started-at="2019-01-02T04:05:09Z" finished-at="2019-01-02T04:05:31Z">
+    <test name="Default test" duration-ms="20987" started-at="2019-01-03T06:42:56Z" finished-at="2019-01-03T06:43:17Z">
+      <class name="com.nike.allpages.test.SelectYourLocationPageTest">
+        <test-method status="PASS" signature="openBrowser()[pri:0, instance:com.nike.allpages.test.SelectYourLocationPageTest@5e3a8624]" name="openBrowser" is-config="true" duration-ms="8509" started-at="2019-01-03T06:42:56Z" finished-at="2019-01-03T06:43:04Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- openBrowser -->
-        <test-method status="PASS" signature="homePageTest3(java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object)[pri:0, instance:com.nike.allpages.test.HomepageTest@5c3bd550]" name="homePageTest3" duration-ms="3385" started-at="2019-01-02T04:05:32Z" data-provider="joinNowFormData" finished-at="2019-01-02T04:05:36Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[Anderson@gmail.com]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[1234566.0]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[Anderson]]>
-              </value>
-            </param>
-            <param index="3">
-              <value>
-                <![CDATA[Thomas]]>
-              </value>
-            </param>
-            <param index="4">
-              <value>
-                <![CDATA[32914.0]]>
-              </value>
-            </param>
-            <param index="5">
-              <value>
-                <![CDATA[Christmas Island]]>
-              </value>
-            </param>
-          </params>
+        <test-method status="PASS" signature="homePageTest1()[pri:0, instance:com.nike.allpages.test.SelectYourLocationPageTest@5e3a8624]" name="homePageTest1" duration-ms="12446" started-at="2019-01-03T06:43:04Z" finished-at="2019-01-03T06:43:17Z">
           <reporter-output>
+            <line>
+              <![CDATA[Actual Country NORTH AMERICA is equal to Expected Country NORTH AMERICA]]>
+            </line>
+            <line>
+              <![CDATA[Actual Country SOUTH AMERICA is equal to Expected Country SOUTH AMERICA]]>
+            </line>
+            <line>
+              <![CDATA[Actual Country EUROPE is equal to Expected Country EUROPE]]>
+            </line>
+            <line>
+              <![CDATA[Actual Country ASIA PACIFIC is equal to Expected Country ASIA PACIFIC]]>
+            </line>
+            <line>
+              <![CDATA[Actual Country MIDDLE EAST is equal to Expected Country MIDDLE EAST]]>
+            </line>
+            <line>
+              <![CDATA[Actual Country AFRICA is equal to Expected Country AFRICA]]>
+            </line>
           </reporter-output>
-        </test-method> <!-- homePageTest3 -->
-        <test-method status="PASS" signature="homePageTest3(java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object)[pri:0, instance:com.nike.allpages.test.HomepageTest@5c3bd550]" name="homePageTest3" duration-ms="1633" started-at="2019-01-02T04:05:36Z" data-provider="joinNowFormData" finished-at="2019-01-02T04:05:37Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[Jackson@aol.com ]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[a123445999]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[Jackson]]>
-              </value>
-            </param>
-            <param index="3">
-              <value>
-                <![CDATA[Murray]]>
-              </value>
-            </param>
-            <param index="4">
-              <value>
-                <![CDATA[35470.0]]>
-              </value>
-            </param>
-            <param index="5">
-              <value>
-                <![CDATA[Cocos (Keeling) Islands]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- homePageTest3 -->
-        <test-method status="PASS" signature="homePageTest3(java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object)[pri:0, instance:com.nike.allpages.test.HomepageTest@5c3bd550]" name="homePageTest3" duration-ms="1653" started-at="2019-01-02T04:05:37Z" data-provider="joinNowFormData" finished-at="2019-01-02T04:05:39Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[simon@yahoo.com]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[9.99981234E8]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[Simon]]>
-              </value>
-            </param>
-            <param index="3">
-              <value>
-                <![CDATA[Tauffel]]>
-              </value>
-            </param>
-            <param index="4">
-              <value>
-                <![CDATA[42410.0]]>
-              </value>
-            </param>
-            <param index="5">
-              <value>
-                <![CDATA[Bangladesh]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- homePageTest3 -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.nike.allpages.test.HomepageTest@5c3bd550]" name="tearDown" is-config="true" duration-ms="0" started-at="2019-01-02T04:05:39Z" finished-at="2019-01-02T04:05:39Z">
+        </test-method> <!-- homePageTest1 -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.nike.allpages.test.SelectYourLocationPageTest@5e3a8624]" name="tearDown" is-config="true" duration-ms="0" started-at="2019-01-03T06:43:17Z" finished-at="2019-01-03T06:43:17Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- com.nike.allpages.test.HomepageTest -->
+      </class> <!-- com.nike.allpages.test.SelectYourLocationPageTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

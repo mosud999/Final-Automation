@@ -3,13 +3,13 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.nike.allpages.test.HomepageTest">
+      <class name="com.nike.allpages.test.SelectYourLocationPageTest">
         <methods>
           <include name="tearDown"/>
-          <include name="homePageTest3" invocation-numbers="1 2"/>
+          <include name="homePageTest1"/>
           <include name="openBrowser"/>
         </methods>
-      </class> <!-- com.nike.allpages.test.HomepageTest -->
+      </class> <!-- com.nike.allpages.test.SelectYourLocationPageTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

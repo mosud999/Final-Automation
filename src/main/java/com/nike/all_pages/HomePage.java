@@ -68,6 +68,9 @@ public class HomePage {
 	@FindBy(xpath="//select[@name='country' and @data-componentname='country']")
 	WebElement joinInCountrySelection;
 	
+	@FindBy(xpath="//a[@class='js-rootItem js-navItem']")
+	WebElement locationButtonElement;
+	
 	
 	/*----------Constructor---------*/
 	public HomePage(WebDriver driver) {
@@ -183,6 +186,15 @@ public class HomePage {
 	public void homePage_ClickOnJoinNowFormCloseButton()
 	{
 		SharedMethods.clickOnElement(joinNowFormCloseButtonElement, driver);	
+	}/*----------End of homePage_ClickOnJoinNowFormCloseButton---------*/
+	
+	
+	/*----------Start of homePage_ClickOnJoinNowFormCloseButton---------*/
+	public SelectYourLocationPage clickOnSelectLocationButton()
+	{
+		SharedMethods.clickOnElement(locationButtonElement, driver);
+		return new SelectYourLocationPage(driver);
+		
 	}/*----------End of homePage_ClickOnJoinNowFormCloseButton---------*/
 	
 
