@@ -71,6 +71,14 @@ public class HomePage {
 	@FindBy(xpath="//a[@class='js-rootItem js-navItem']")
 	WebElement locationButtonElement;
 	
+	@FindBy(xpath="//li[@js-hook='gnav-bar--section-men']/a")
+	WebElement mouseHoverOnMenElement;
+	
+	@FindBy(xpath="(//a[text()='COLD WEATHER ESSENTIALS'])[1]")
+	WebElement coledWeatherEssentialElement;
+	
+	@FindBy(xpath="//input[@id='search']")
+	WebElement searchBoxElement;
 	
 	/*----------Constructor---------*/
 	public HomePage(WebDriver driver) {
@@ -91,7 +99,8 @@ public class HomePage {
 	/*----------Start of HomePage Logo Check---------*/
 	public void homePage_LogoCheck() {
 		boolean logoDisplayed = logoElement.isDisplayed();
-		Assert.assertTrue(logoDisplayed);
+		Assert.assertTrue(false);
+		//Assert.assertTrue(logoDisplayed);
 		Reporter.log("Logo displayed", true); /* true to print on the console; Without boolean condition Log will just generate report */
 	}/*----------End of HomePage Logo Check---------*/
 
@@ -197,5 +206,27 @@ public class HomePage {
 		
 	}/*----------End of homePage_ClickOnJoinNowFormCloseButton---------*/
 	
+	public void typeOnSearchBox(Object searchData, Object expectedSearchingUrl) throws InterruptedException
+	{
+		SharedMethods.type(searchBoxElement, driver, searchData.toString());
+		Thread.sleep(3000);
+		String actualPageUrl=driver.getCurrentUrl();
+		Thread.sleep(3000);
+		Assert.assertEquals(actualPageUrl, expectedSearchingUrl.toString(), "actualPageUr does not match with expectedSearchingUrl");
+		driver.navigate().back();
+		Reporter.log(actualPageUrl, true);
+	}
+	
+	
+	
+	public void mouseHoverOnMenMenu()
+	{
+		SharedMethods.mouseHover(mouseHoverOnMenElement, driver);
+	}
+	public MensColdWeatherPage clickOnColdWeatherEssentialSubMenu()
+	{
+		SharedMethods.clickOnElement(coledWeatherEssentialElement, driver);
+		return new MensColdWeatherPage(driver);
+	}
 
 }

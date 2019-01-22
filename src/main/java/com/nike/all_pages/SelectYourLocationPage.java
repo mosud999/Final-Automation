@@ -1,16 +1,21 @@
 package com.nike.all_pages;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Properties;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.LoadableComponent;
+import org.testng.Assert;
 import org.testng.Reporter;
+import com.signIn.signUp.data_DataProvider.ExpectedLocationList;
 
-public class SelectYourLocationPage {
+public class SelectYourLocationPage extends LoadableComponent<SelectYourLocationPage> {
 
 	WebDriver driver;
 
@@ -24,12 +29,11 @@ public class SelectYourLocationPage {
 	}/*----------End of Constructor---------*/
 
 	/*----------Start of countriesNameVerification---------*/
-	public void countriesNameVerification() {
-		String[] expectedCountriesNameElement = { "NORTH AMERICA", "SOUTH AMERICA", "EUROPE", "ASIA PACIFIC",
-				"MIDDLE EAST", "AFRICA" };
+	public void countriesNameVerification() throws IOException {
+		
 		
 		ArrayList actList = countriesActualNamesFromWebsite(actualCountriesNameElement);
-		ArrayList expList = countriesExpectedNamesListFromFile(expectedCountriesNameElement);
+		ArrayList expList = countriesExpectedNamesListFromFile();
 
 		int actualCountriesNumber = actList.size();
 		int expectedCountriesNumber = expList.size();
@@ -69,13 +73,47 @@ public class SelectYourLocationPage {
 		return actualList;
 	}
 
-	public ArrayList<String> countriesExpectedNamesListFromFile(String[] expectedCountriesNames) {
+	public ArrayList<String> countriesExpectedNamesListFromFile() throws IOException {
 		ArrayList<String> expectedList = new ArrayList<String>();
-		for (String e1 : expectedCountriesNames) {
-			expectedList.add(e1);
-			System.out.println(e1);
+		Object[][] a=ExpectedLocationList.expectedLocationList();
+		for(int i=0; i<a.length; i++)
+		{
+			for(int j=0; j<a[i].length; j++)
+			{
+				expectedList.add(a[i][j].toString());
+			}
 		}
 		return expectedList;
 	}
 
-}/*----------End of countriesNameVerification---------*/
+	/*----------Start of countriesNameVerification page verification---------*/
+	@Override
+	protected void isLoaded() throws Error 
+	{	
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		String actualUrl=driver.getCurrentUrl();
+		String expectedUrl="https://www.nike.com/language_tunnel";
+		Assert.assertTrue(actualUrl.equals(expectedUrl));
+		Reporter.log("Loaded Page Title is : " +actualUrl, true);
+	}
+
+	@Override
+	protected void load() throws Error 
+	{
+		driver.get("https://www.nike.com/us/en_us");
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}	
+		driver.navigate().to("https://www.nike.com/us/en_us");
+		Reporter.log("Unloaded Current Page ", true);
+			
+	}
+  }/*----------End of countriesNameVerification---------*/

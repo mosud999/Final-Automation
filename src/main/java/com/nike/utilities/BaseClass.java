@@ -1,9 +1,13 @@
 package com.nike.utilities;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterTest;
@@ -12,7 +16,7 @@ import org.testng.annotations.Test;
 
 public class BaseClass {
 
-	 public WebDriver driver;
+	 public static WebDriver driver;
 
 	/*----------Start of Before Test---------*/
 	@BeforeTest
@@ -28,6 +32,7 @@ public class BaseClass {
 			if (configEnviroment.equals("qa")) {
 				System.setProperty("webdriver.chrome.driver", "D:\\Bittech\\Driver\\chromedriver.exe");
 				driver = new ChromeDriver();
+		
 
 			}
 		} else if (configBrowser.equals("firefox")) {
@@ -48,6 +53,25 @@ public class BaseClass {
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 	}
+	/*---------Screenshot method-------------*/
+		public File screentshotCaptureMethod(String failedMethods) {
+			
+			File src = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+			File destination = new File("C:\\Users\\User\\workspace\\Nike.Automation\\screenshot\\" + failedMethods + ".jpg");
+			try {
+				FileUtils.copyFile(src, destination);
+				
+				
+
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			
+			return destination;
+		}
+		
+		/*--------- End Screenshot method-------------*/
+	
 	/*----------End of Before Test---------*/
 
 	/*----------Start of After Test---------*/

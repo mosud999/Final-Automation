@@ -10,6 +10,7 @@ import com.nike.utilities.BaseClass;
 import com.nike.utilities.SharedMethods;
 import com.signIn.signUp.data_DataProvider.ReadJoinNowFormDatas;
 import com.signIn.signUp.data_DataProvider.ReadLoginData;
+import com.signIn.signUp.data_DataProvider.ReadSearchingData;
 
 import page.manager.PageObjectManager;
 
@@ -18,18 +19,24 @@ public class HomepageTest extends BaseClass{
 	PageObjectManager pageObjectManager;
 	HomePage homePage;
 	
-	/*@Test
-	public void homePageTest1()
+	/*
+	@Test
+
+	public void homePageTest1() throws InterruptedException
 	{
 		pageObjectManager=new PageObjectManager(driver);
 		homePage=pageObjectManager.getHomePage();
 		homePage.homePage_UrlVerification();
 		homePage.homePage_LogoCheck();
-		homePage.homePage_SearchBoxFunctionalityCheck();
-		homePage.homePage_BrokenLinksCheck();
+		homePage.typeOnSearchBox();
+		//homePage.mouseHoverOnMenMenu();
+		//homePage.clickOnColdWeatherEssentialSubMenu();
+		//homePage.homePage_SearchBoxFunctionalityCheck();
+		//homePage.homePage_BrokenLinksCheck();
 	}*/
 	
-	/*
+	
+	
 	 /* Read and Check datas by using data provider */
 	/*
 	@Test(dataProvider="loginData", dataProviderClass=ReadLoginData.class)
@@ -44,7 +51,7 @@ public class HomepageTest extends BaseClass{
 	/* For data provider, if you create diifferent class for @DataProvider then you have to add that class also; */
 	/* To read any excel sheet always create a new one, do not copy from existing one; otherwise it will throw an exception;*/
 	
-	@Test(dataProvider="joinNowFormData", dataProviderClass=ReadJoinNowFormDatas.class) 
+	/*@Test(dataProvider="joinNowFormData", dataProviderClass=ReadJoinNowFormDatas.class) 
 	public void homePageTest3(Object email, Object password, Object firstName, Object lastName, Object joinInDateOfBirthElement, Object countries)
 	{	pageObjectManager=new PageObjectManager(driver);
 	    homePage=pageObjectManager.getHomePage();
@@ -54,6 +61,17 @@ public class HomepageTest extends BaseClass{
 		homePage.homePage_ClickOnJoinNowFormCloseButton();
 		
 	
+	}*/
+	
+	@Test(dataProvider="readSearchingData", dataProviderClass=ReadSearchingData.class)
+	public void homePageTest1(Object searchingData, Object expectedSearchingUrl) throws InterruptedException
+	{
+		pageObjectManager=new PageObjectManager(driver);
+		homePage=pageObjectManager.getHomePage();
+		//homePage.homePage_UrlVerification();
+		//homePage.homePage_LogoCheck();
+		homePage.typeOnSearchBox(searchingData, expectedSearchingUrl);
+		
 	}
 	
 	

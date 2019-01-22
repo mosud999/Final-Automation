@@ -3,6 +3,8 @@ package com.nike.allpages.test;
 import java.io.IOException;
 
 import org.openqa.selenium.By;
+import org.testng.Assert;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import com.nike.all_pages.HomePage;
@@ -21,12 +23,14 @@ public class SelectYourLocationPageTest extends BaseClass{
 	SelectYourLocationPage selectYourLocationPage;
 	
 	@Test
-	public void homePageTest1()
+	public void homePageTest1() throws IOException
 	{
 		pageObjectManager=new PageObjectManager(driver);
 		homePage=pageObjectManager.getHomePage();
-		selectYourLocationPage=homePage.clickOnSelectLocationButton();
+		selectYourLocationPage=homePage.clickOnSelectLocationButton().get();
 		selectYourLocationPage.countriesNameVerification();
 	}
+	
+	
 
 }
